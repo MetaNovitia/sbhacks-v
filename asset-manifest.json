@@ -1,7 +1,7 @@
 {
-  "main.css": "/sbhacks-v/static/css/main.d08339e0.chunk.css",
-  "main.js": "/sbhacks-v/static/js/main.c0e6d5aa.chunk.js",
-  "main.js.map": "/sbhacks-v/static/js/main.c0e6d5aa.chunk.js.map",
+  "main.css": "/sbhacks-v/static/css/main.082280f4.chunk.css",
+  "main.js": "/sbhacks-v/static/js/main.904a9560.chunk.js",
+  "main.js.map": "/sbhacks-v/static/js/main.904a9560.chunk.js.map",
   "static/css/1.777b6195.chunk.css": "/sbhacks-v/static/css/1.777b6195.chunk.css",
   "static/js/1.42af8067.chunk.js": "/sbhacks-v/static/js/1.42af8067.chunk.js",
   "static/js/1.42af8067.chunk.js.map": "/sbhacks-v/static/js/1.42af8067.chunk.js.map",
@@ -9,8 +9,8 @@
   "runtime~main.js.map": "/sbhacks-v/static/js/runtime~main.42722f92.js.map",
   "static/css/1.777b6195.chunk.css.map": "/sbhacks-v/static/css/1.777b6195.chunk.css.map",
   "static/media/Home.css": "/sbhacks-v/static/media/home.d841d625.jpg",
-  "static/css/main.d08339e0.chunk.css.map": "/sbhacks-v/static/css/main.d08339e0.chunk.css.map",
+  "static/css/main.082280f4.chunk.css.map": "/sbhacks-v/static/css/main.082280f4.chunk.css.map",
   "index.html": "/sbhacks-v/index.html",
-  "precache-manifest.12f8a50c7d28513911464b6b9724a4f8.js": "/sbhacks-v/precache-manifest.12f8a50c7d28513911464b6b9724a4f8.js",
+  "precache-manifest.c5415793bb42a4dab8888ed20d35f67c.js": "/sbhacks-v/precache-manifest.c5415793bb42a4dab8888ed20d35f67c.js",
   "service-worker.js": "/sbhacks-v/service-worker.js"
 }
