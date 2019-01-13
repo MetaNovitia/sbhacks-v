@@ -80,9 +80,15 @@ export default class Project extends Component {
         for(var i=0; i<data.length; i++){
 
             if(data[i].spam===1){
+                
                 var color = [221,113,113];
 
-                color[1] = 255-112*(data[i].spamprob-0.4)*2;
+                color[1] = Math.floor(255-112*(data[i].spamprob-0.4)*2);
+                if(color[1]<113){
+                    color[1]=113;
+                }else if(color[1]>254){
+                    color[1]=254;
+                }
 
                 this.data.push(
                     <Row    key={data[i].id} 
