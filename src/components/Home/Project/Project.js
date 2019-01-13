@@ -129,7 +129,7 @@ export default class Project extends Component {
         var rem = e.target.id;
         console.log(rem);
         for(var i=0; i<this.data.length; i++){
-            if(this.data[i].state!==undefined && this.data[i].state.visible===false){
+            if(this.data[i].state!==undefined){
                 this.data.splice(i, 0);
             }
         }
