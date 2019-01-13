@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/sbhacks-v/static/css/1.777b6195.chunk.css"
   },
   {
-    "revision": "2e71e90a86ad08ff39c41cf7c9891efd",
+    "revision": "ea4d4f6ca1c0227eac5038d96aabacb6",
     "url": "/sbhacks-v/index.html"
   }
 ];
