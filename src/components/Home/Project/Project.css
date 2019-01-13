@@ -1,10 +1,11 @@
 .comment {
-    color:black;
+    color:rgb(221, 138, 138);
     padding: 20px;
     text-align: left;
     margin: 10px;
     margin-top: 25px;
     margin-bottom: 25px;
+    
 }
 
 .userpic{
@@ -22,12 +23,18 @@
     max-width:14%;
 }
 
+.rating{
+    max-width:20%;
+    font-size:70px;
+    text-align: center;
+}
+
 .bodyuser {
-    max-width: 70%;
+    max-width: 47%;
 }
 
 .spam {
-    max-width: 16%;
+    max-width: 18%;
 }
 
 .spambtn {
@@ -41,4 +48,8 @@
     margin-bottom: 35px;
     border-radius: 20px;
     border: 3px solid transparent;
+}
+
+.cen{
+    align-items: center;
 }

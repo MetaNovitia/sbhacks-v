@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Container, Row} from 'reactstrap';
-import NavBar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Project from './Project/Project';
 import './Home.css';
+import logo from "./logo.png";
 
 export default class Home extends Component {
 
@@ -23,23 +23,23 @@ export default class Home extends Component {
         return (
             <Container 
                     fluid 
-                    className="center homep"
+                    className="homep"
                     style={{
                         height: this.y.toString() + "px"
                     }}
             >
-                <Row></Row>
+                <div><img className="logo" src={logo} alt=""/></div>
                 <div
                     style={{
-                        marginTop: ((this.y-100)/2-80).toString() + "px",
-                        marginBottom: ((this.y/3*2)-100).toString() + "px"
+                        marginTop: ((this.y-120)/2-140).toString() + "px",
+                        marginBottom: ((this.y/3*2)-120).toString() + "px"
                     }}>
                     <Row    className="title center"
-                    >[Project Name]</Row>
+                    >[ SBAM detector ]</Row>
                     <br/>
                     <Row    className="subtitle center"
                     >
-                        by [Team Name]
+                        by TheNewRandom
                     
                     </Row>
                 </div>

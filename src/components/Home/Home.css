@@ -1,13 +1,13 @@
 .title {
     color: black;
     font-size: 80px;
-    background-color: rgba(167, 163, 163, 0.671);
+    background-color: rgba(167, 163, 163, 0.705);
 }
 
 .subtitle{
     color: black;
     font-size: 20px;
-    background-color: rgba(167, 163, 163, 0.863);
+    background-color: rgba(167, 163, 163, 0.705);
 }
 
 .head {
@@ -36,4 +36,10 @@
     background-image:url("./home.jpg");
     background-size: 100%;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.logo{
+    width:60px;
+    margin-top: 10px;
 }

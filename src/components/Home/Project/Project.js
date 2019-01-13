@@ -12,6 +12,7 @@ import {
 import './Project.css';
 import Report from "./Report/Report";
 import Cloud from "./Cloud/Cloud";
+import $ from 'jquery';
 
 
 export default class Project extends Component {
@@ -33,6 +34,7 @@ export default class Project extends Component {
         this.notspam = this.notspam.bind(this);
         this.spam = this.spam.bind(this);
         this.data = [];
+        this.cloudData = [];
 
 
     }
@@ -56,103 +58,69 @@ export default class Project extends Component {
         }
     }
 
-    setData(data){
+    processURL(){
+        if( this.state.inputValue.startsWith("https://www.youtube.com/watch?v=") ||
+            this.state.inputValue.startsWith("www.youtube.com/watch?v=")){
+                console.log("35.247.16.191:5000/comments/"+this.state.inputValue.split("v=")[1]);
+                $.ajax({
+                    url: "http://35.247.16.191:5000/comments/"+this.state.inputValue.split("v=")[1],        // link to data request
+                    context: document.body,
+                    crossDomain: true
+                }).done(this.setData);
+        }else{
+            alert("Please enter a valid YouTube url!");
+        }
+    }
+
+    setData(input){
         this.data=[];
-        data = [
-            {
-                "id": "100",
-                "text": "It sounds so good, I can smell it!",
-                "author": {
-                    "name": "1Blake Grigsby",
-                    "image": "https://yt3.ggpht.com/a-/AAuE7mC1PH30ZNyLXgE4SaHkTRY5saAR584q-i-J-w=s288-mo-c-c0xffffffff-rj-k-no",
-                    "url" : ""
-                }
-            },
-            {
-                "id": "101",
-                "text": "It sounds so good, I can smell it!",
-                "author": {
-                    "name": "2Blake Grigsby",
-                    "image": "https://yt3.ggpht.com/a-/AAuE7mC1PH30ZNyLXgE4SaHkTRY5saAR584q-i-J-w=s288-mo-c-c0xffffffff-rj-k-no",
-                    "url" : ""
-                }
-            },
-            {
-                "id": "102",
-                "text": "It sounds so good, I can smell it!",
-                "author": {
-                    "name": "3Blake Grigsby",
-                    "image": "https://yt3.ggpht.com/a-/AAuE7mC1PH30ZNyLXgE4SaHkTRY5saAR584q-i-J-w=s288-mo-c-c0xffffffff-rj-k-no",
-                    "url" : ""
-                }
-            },
-            {
-                "id": "103",
-                "text": "It sounds so good, I can smell it!",
-                "author": {
-                    "name": "4Blake Grigsby",
-                    "image": "https://yt3.ggpht.com/a-/AAuE7mC1PH30ZNyLXgE4SaHkTRY5saAR584q-i-J-w=s288-mo-c-c0xffffffff-rj-k-no",
-                    "url" : ""
-                }
-            }
-    
-        ];
+        console.log(input);
+        var data = input.items;
+        
+        this.cloudData = input.wordcloud;
+
         for(var i=0; i<data.length; i++){
 
-            var x = 180;        // brightness
-            var c = 20;         // saturation
-            var y = 255-x-c;
-            var color = [x,x,x];
+            if(data[i].spam===1){
+                var color = [221,113,113];
 
-            var change = Math.floor(Math.random()*3);
-            var other = 2;
+                color[1] = 255-112*(data[i].spamprob-0.4)*2;
 
-            if (change===1){
-                color[1]=x+20;
-                if(Math.random()<0.5){
-                    color[0] = x+y;
-                }else{
-                    color[2] = x+y;
-                }
-            }else{
-                if (change===2){
-                    other = 0;
-                }
-                color[other] = x+y;
-                color[change] = Math.floor(Math.random() * y) +x;
+                this.data.push(
+                    <Row    key={data[i].id} 
+                            id={data[i].id} 
+                            className="comment"
+                            style={{
+                                backgroundColor:    "rgb("+
+                                                    color[0].toString()+","+
+                                                    color[1].toString()+","+
+                                                    color[2].toString()+
+                                                    ")"
+                            }}>
+                        <Col className="photo cen">
+                        <img  
+                                alt="user img" 
+                                className='userpic' 
+                                src={data[i].author.picture}/>
+                        </Col>
+                        <Col className="bodyuser cen">
+                            <div className="author">
+                                {data[i].author.name}
+                            </div>
+                            <div>
+                                {data[i].text}
+                            </div>
+                        </Col>
+                        <Col className="spam cen">
+                            <div><Button id={data[i].id} className="spambtn" onClick={this.spam}>Spam</Button></div>
+                            <div><Button id={data[i].id} className="spambtn" onClick={this.notspam}>Not Spam</Button></div>
+                        </Col>
+                        <Col className="rating cen">
+                            {Math.floor(data[i].spamprob*100).toString()+"%"}
+                        </Col>
+                    </Row>
+                );
             }
-
-            this.data.push(
-                <Row    key={data[i].id} 
-                        id={data[i].id} 
-                        className="comment"
-                        style={{
-                            backgroundColor:    "rgb("+
-                                                color[0].toString()+","+
-                                                color[1].toString()+","+
-                                                color[2].toString()+
-                                                ")"
-                        }}>
-                    <Col className="photo">
-                    <img  
-                            alt="user img" 
-                            className='userpic' 
-                            src={data[i].author.image}/>
-                    </Col>
-                    <Col className="bodyuser">
-                        <div className="author">
-                            {data[i].author.name}
-                        </div>
-                        <div>
-                            {data[i].text}
-                        </div>
-                    </Col>
-                    <Col className="spam">
-                        <div><Button id={data[i].id} className="spambtn" onClick={this.spam}>Spam</Button></div>
-                        <div><Button id={data[i].id} className="spambtn" onClick={this.notspam}>Not Spam</Button></div>
-                    </Col>
-                </Row>
-            );
         }
             
 
@@ -169,7 +137,7 @@ export default class Project extends Component {
         for(i=0; i<this.data.length; i++){
             if(this.data[i].key===rem){
                 // send post to python
-                if(true){
+                if(false){
                     this.data.splice(i, 1, <Report key={i.toString()+rem}  c="success"></Report>);
                 }else{
                     this.data.splice(i, 0, <Report key={i.toString()+rem}  c="danger"></Report>);
@@ -197,18 +165,7 @@ export default class Project extends Component {
         this.toggled();
     }
 
-    processURL(){
-        if( this.state.inputValue.startsWith("https://www.youtube.com/watch?v=") ||
-            this.state.inputValue.startsWith("www.youtube.com/watch?v=")){
-                this.setData("test");
-                // $.ajax({
-                //     url: "",        // link to data request
-                //     context: document.body
-                // }).done(this.setData);
-        }else{
-            alert("Please enter a valid YouTube url!");
-        }
-    }
+    
 
     
 
@@ -265,7 +222,7 @@ export default class Project extends Component {
                             {this.data}
                         </TabPane>
                         <TabPane tabId="2">
-                            <Cloud></Cloud>
+                            <Cloud data={this.cloudData}></Cloud>
                         </TabPane>
                     </TabContent>
                 </Col>
