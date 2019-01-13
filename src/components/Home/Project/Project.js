@@ -201,7 +201,7 @@ export default class Project extends Component {
                 </InputGroupAddon>
             </InputGroup>
 
-            <Container>
+            <Container className="center">
                 <Col>
                     <Button key = {"1"}
                             id = {"1"}
