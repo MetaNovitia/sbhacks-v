@@ -61,9 +61,8 @@ export default class Project extends Component {
     processURL(){
         if( this.state.inputValue.startsWith("https://www.youtube.com/watch?v=") ||
             this.state.inputValue.startsWith("www.youtube.com/watch?v=")){
-                console.log("35.247.16.191:5000/comments/"+this.state.inputValue.split("v=")[1]);
                 $.ajax({
-                    url: "http://35.247.16.191:5000/comments/"+this.state.inputValue.split("v=")[1],        // link to data request
+                    url: "https://35.247.16.191:5000/comments/"+this.state.inputValue.split("v=")[1],        // link to data request
                     context: document.body,
                     crossDomain: true
                 }).done(this.setData);
@@ -74,7 +73,6 @@ export default class Project extends Component {
 
     setData(input){
         this.data=[];
-        console.log(input);
         var data = input.items;
         
         this.cloudData = input.wordcloud;
