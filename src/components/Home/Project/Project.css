@@ -1,0 +1,49 @@
+.comment {
+    color:white;
+    padding: 20px;
+    text-align: left;
+    background-color: gray;
+    margin: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.userpic{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.author{
+    font-size: 26px;
+}
+
+.photo{
+    max-width:14%;
+}
+
+.bodyuser {
+    max-width: 70%;
+}
+
+.spam {
+    max-width: 16%;
+}
+
+.spambtn {
+    margin: 10px;
+    width: 100%;
+}
+
+.topicbtn{
+    width: 200px;
+    margin: 50px;
+    margin-bottom: 35px;
+    border-radius: 20px;
+    border: 3px solid transparent;
+}
+
+.rep{
+    
+}

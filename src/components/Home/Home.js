@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {Container, Row} from 'reactstrap';
 import NavBar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import Project from './Project/Project';
 import './Home.css';
-import './backcolors.css';
 
 export default class Home extends Component {
 
@@ -23,23 +23,43 @@ export default class Home extends Component {
         return (
             <Container 
                     fluid 
-                    className="black-b center"
+                    className="center homep"
                     style={{
                         height: this.y.toString() + "px"
                     }}
             >
-                <NavBar open="home"></NavBar>
-                <Row    className="title center"
-                        style={{
-                            marginTop: ((this.y-68-26)/2-120).toString() + "px"
-                        }}
-                >Coding Session</Row>
-                <Row    className="subtitle center"
-                        style={{
-                            marginBottom: ((this.y-68-26)/2-30).toString() + "px"
-                        }}
-                >by ACM@UCI</Row>
+                <Row></Row>
+                <div
+                    style={{
+                        marginTop: ((this.y-100)/2-80).toString() + "px",
+                        marginBottom: ((this.y/3*2)-100).toString() + "px"
+                    }}>
+                    <Row    className="title center"
+                    >[PROJECT NAME]</Row>
+                    <br/>
+                    <Row    className="subtitle center"
+                    >
+                        by [TEAM NAME]
+                    
+                    </Row>
+                </div>
+
+
+                <Row
+                    style={{
+                        marginBottom: "50px"
+                    }}
+                >
+                    <Project></Project>
+                    
+                </Row>
+
+                
+                                
+
                 <Footer></Footer>
+
+
             </Container>
         );
     }

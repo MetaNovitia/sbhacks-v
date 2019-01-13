@@ -13,7 +13,7 @@ class Footer extends Component {
   render() {
     return (
       <Row className="foot">
-          Copyright © 2019 Meta Novitia. All Rights Reserved.
+          Copyright © 2019 [TEAM NAME]. All Rights Reserved.
       </Row>
     );
   }
