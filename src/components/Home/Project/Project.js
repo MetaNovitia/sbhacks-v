@@ -11,6 +11,7 @@ import {
     TabPane} from 'reactstrap';
 import './Project.css';
 import Report from "./Report/Report";
+import Cloud from "./Cloud/Cloud";
 
 
 export default class Project extends Component {
@@ -97,8 +98,41 @@ export default class Project extends Component {
     
         ];
         for(var i=0; i<data.length; i++){
+
+            var x = 180;        // brightness
+            var c = 20;         // saturation
+            var y = 255-x-c;
+            var color = [x,x,x];
+
+            var change = Math.floor(Math.random()*3);
+            var other = 2;
+
+            if (change===1){
+                color[1]=x+20;
+                if(Math.random()<0.5){
+                    color[0] = x+y;
+                }else{
+                    color[2] = x+y;
+                }
+            }else{
+                if (change===2){
+                    other = 0;
+                }
+                color[other] = x+y;
+                color[change] = Math.floor(Math.random() * y) +x;
+            }
+
             this.data.push(
-                <Row key={data[i].id} id={data[i].id} className="comment">
+                <Row    key={data[i].id} 
+                        id={data[i].id} 
+                        className="comment"
+                        style={{
+                            backgroundColor:    "rgb("+
+                                                color[0].toString()+","+
+                                                color[1].toString()+","+
+                                                color[2].toString()+
+                                                ")"
+                        }}>
                     <Col className="photo">
                     <img  
                             alt="user img" 
@@ -231,7 +265,7 @@ export default class Project extends Component {
                             {this.data}
                         </TabPane>
                         <TabPane tabId="2">
-                            Word Cloud
+                            <Cloud></Cloud>
                         </TabPane>
                     </TabContent>
                 </Col>

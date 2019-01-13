@@ -35,11 +35,11 @@ export default class Home extends Component {
                         marginBottom: ((this.y/3*2)-100).toString() + "px"
                     }}>
                     <Row    className="title center"
-                    >[PROJECT NAME]</Row>
+                    >[Project Name]</Row>
                     <br/>
                     <Row    className="subtitle center"
                     >
-                        by [TEAM NAME]
+                        by [Team Name]
                     
                     </Row>
                 </div>

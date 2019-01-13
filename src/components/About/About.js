@@ -6,11 +6,7 @@ import './About.css';
 export default class About extends Component {
 
 
-    updateInputValue(evt) {
-        this.setState({
-            inputValue: evt.target.value
-        });
-    }
+    
 
     render() {
         return (
