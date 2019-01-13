@@ -25,7 +25,7 @@ export default class Project extends Component {
             collapse: false,
             activeTab: "1"
         };
-        this.toggle = this.toggle.bind(this);
+        this.toggled = this.toggled.bind(this);
         this.toggleTab = this.toggleTab.bind(this);
         this.setData = this.setData.bind(this);
         this.processURL = this.processURL.bind(this);
@@ -43,7 +43,7 @@ export default class Project extends Component {
         
     }
 
-    toggle() {
+    toggled() {
         this.setState({ collapse: !this.state.collapse });
     }
 
@@ -122,40 +122,45 @@ export default class Project extends Component {
         }
             
 
-        this.toggle();
+        this.toggled();
     }
 
     spam(e){
         var rem = e.target.id;
-        console.log(rem);
         for(var i=0; i<this.data.length; i++){
-            if(this.data[i].state!==undefined){
-                this.data.splice(i, 0);
+            if(this.data[i].key===null){
+                this.data.splice(i, 1);
             }
         }
         for(i=0; i<this.data.length; i++){
             if(this.data[i].key===rem){
                 // send post to python
-                if(false){
-                    this.data.splice(i, 1, <Report success={true}></Report>);
+                if(true){
+                    this.data.splice(i, 1, <Report key={i.toString()+rem}  c="success"></Report>);
                 }else{
-                    this.data.splice(i, 0, <Report success={false}></Report>);
+                    this.data.splice(i, 0, <Report key={i.toString()+rem}  c="danger"></Report>);
                 }
                 break;
             }
         }
-        this.toggle();
+        this.toggled();
     }
 
     notspam(e){
         var rem = e.target.id;
         for(var i=0; i<this.data.length; i++){
-            if(this.data[i].key===rem){
+            if(this.data[i].key===null){
                 this.data.splice(i, 1);
+            }
+        }
+        for(i=0; i<this.data.length; i++){
+            if(this.data[i].key===rem){
+                // send post to python
+                this.data.splice(i, 1, <Report key={i.toString()+rem}  c="info"></Report>);
                 break;
             }
         }
-        this.toggle();
+        this.toggled();
     }
 
     processURL(){
@@ -174,7 +179,6 @@ export default class Project extends Component {
     
 
     render() {
-        console.log(this.state.activeTab);
         if (this.data.length===0){
             return(
                 <Container>

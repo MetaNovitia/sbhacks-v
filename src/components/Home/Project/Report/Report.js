@@ -6,17 +6,17 @@ export default class Report extends React.Component {
     super(props);
 
     this.state = {
-      visible: false
+      visible: true
     };
 
     this.show = this.show.bind(this);
 
-    if(props.success){
+    if(props.c==="success"){
         this.msg="Successfully marked message as spam!";
-        this.c = "success";
-    }else{
+    }else if(props.c==="danger"){
         this.msg="Sorry! You are not authorized to do this!";
-        this.c = "danger";
+    }else{
+        this.msg="Successfully marked message as not spam!";
     }
 
 
@@ -33,7 +33,7 @@ export default class Report extends React.Component {
 
   render() {
     return (
-      <Alert className="rep" color={this.c} isOpen={this.state.visible} toggle={this.onDismiss}>
+      <Alert className="rep" color={this.props.c} isOpen={this.state.visible} toggle={this.onDismiss}>
         {this.msg}
       </Alert>
     );

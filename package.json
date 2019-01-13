@@ -2,9 +2,10 @@
   "name": "codingsessions",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://metanovitia.github.io/codingsessions",
+  "homepage": "https://metanovitia.github.io/sbhacks-v",
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "ghpages": "0.0.10",
     "googleapis": "^36.0.0",
     "jquery": "^3.3.1",
     "react": "^16.7.0",
