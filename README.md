@@ -1,9 +1,9 @@
 # SBHACKS
 
 Team:
-Pooya Khosravi
-Raymond Nguyen
-Meta Novitia
-Junlin Wang
+- Pooya Khosravi
+- Raymond Nguyen
+- Meta Novitia
+- Junlin Wang
 
-picture credits: Junlin Wang & Raymond Nguyen (taken during SB Hacks)
+DevPost: https://devpost.com/software/thenewrandom
